@@ -59,6 +59,8 @@ client.registerCommand({
                     return false;
                 }
 
+                players.push(new Player(msg.author.id, colors.shift()!));
+
                 await startMessage.edit(
                     `**<@!${
                         message.author
@@ -67,7 +69,6 @@ client.registerCommand({
                         .join("\n")}`
                 );
 
-                players.push(new Player(msg.author.id, colors.shift()!));
                 message.channel.send(`<@!${msg.author.id}> joined the game!`);
 
                 msg.delete();
